@@ -10,7 +10,7 @@
 // And add it to the DOM in the .headerContainer component
 
 
-const mainHeader = document.querySelector('.header-cntainer')
+const mainHeader = document.querySelector('.header-container')
 mainHeader.appendChild(createHeader());
 
 function createHeader() {
@@ -34,6 +34,6 @@ function createHeader() {
     header.append(date);
     header.append(title);
     header.append(temp);
-
+    
     return header;
-}
+};
