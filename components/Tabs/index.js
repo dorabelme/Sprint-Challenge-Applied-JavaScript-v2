@@ -30,5 +30,17 @@ function createTab(userObj) {
     tab.classList.add('tab');
     tab.textContent = userObj;
 
+    tab.addEventListener("click", () => {
+        var selectCards = null;
+        if (userObj === "node.js") {
+            selectCards = document.querySelectorAll(`.card[data-tab='node']`)
+        } else {
+            selectCards = document.querySelectorAll(`.card[data-tab='${userObj}']`)
+        };
+        const allCards = document.querySelectorAll(".card");
+        allCards.forEach(card => (card.style.display = "none"));
+        selectCards.forEach(card => card.style.display = "flex");
+        });
+
     return tab;
 };

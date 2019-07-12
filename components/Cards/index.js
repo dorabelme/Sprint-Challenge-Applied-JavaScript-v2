@@ -36,7 +36,7 @@ axios
       for (var key in cards) {
         const articleArray = cards[key];
         articleArray.forEach(article => {
-          const card = createCard(article);
+          const card = createCard(article, key);
           mainCard.append(card);
         });
       };
@@ -45,7 +45,7 @@ axios
     console.log("The API is currently down, try again later", error);
   });
 
-function createCard(userObj) {
+function createCard(userObj, category) {
     // create the elements
     const card = document.createElement('div');
     const headline = document.createElement('div');
@@ -59,6 +59,8 @@ function createCard(userObj) {
     headline.classList.add('headline');
     author.classList.add('author');
     imgContainer.classList.add('img-container');
+    card.setAttribute("data-tab", category);
+  
 
     // set the content
     headline.textContent = userObj.headline;
